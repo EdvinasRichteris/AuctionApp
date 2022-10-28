@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "831704671829",
+    "firebase_url": "https://auctionapp-8a872-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "auctionapp-8a872",
+    "storage_bucket": "auctionapp-8a872.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831704671829:android:b92c376d9fb4a414a6d6dc",
+        "android_client_info": {
+          "package_name": "com.example.auctionapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831704671829-5skkugjtdtu0s9of2ubk4ketqogad7u4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMzUy2C6IJvhvv-XhJC-yrhRf5NmWbk84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831704671829-5skkugjtdtu0s9of2ubk4ketqogad7u4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
