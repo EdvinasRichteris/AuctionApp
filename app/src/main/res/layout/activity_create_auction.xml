@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateAuctionActivity">
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:textSize="25dp"
+        android:text="Create Auction"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <EditText
+        android:id="@+id/ItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Item name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/ItemDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:gravity="top|start"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        android:lines="8"
+        android:maxLines="10"
+        android:minLines="6" />
+
+    <Spinner
+        android:id="@+id/Category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="160dp"
+        android:minWidth="210dp"
+        android:minHeight="35dp" />
+
+    <Spinner
+        android:id="@+id/SubCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="210dp"
+        android:minWidth="210dp"
+        android:minHeight="35dp" />
+
+    <EditText
+        android:id="@+id/StartingPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="250dp"
+        android:ems="10"
+        android:hint="Starting Bid"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/TimeLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="300dp"
+        android:ems="10"
+        android:hint="Set Time Limit (hours)"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/PickUpCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="350dp"
+        android:ems="10"
+        android:hint="Country"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/PickUpCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="400dp"
+        android:ems="10"
+        android:hint="City"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/PickUpAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="450dp"
+        android:ems="10"
+        android:hint="Address"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/CreateAuctionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="520dp"
+        android:minWidth="120dp"
+        android:text="Create Auction" />
+
+
+</android.widget.RelativeLayout>

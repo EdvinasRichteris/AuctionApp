@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://auctionapp-8a872-default-rtdb.europe-west1.firebasedatabase.app/");
+    public static String phoneNoForReference = new String();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 final String phoneNoInput = phoneNo.getText().toString();
                 final String passwordInput = password.getText().toString();
@@ -54,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if(getPassword.equals(passwordInput))
                                 {
                                     Toast.makeText(LoginActivity.this, "Succesfully Logged In", Toast.LENGTH_SHORT).show();
+                                    phoneNoForReference = phoneNo.getText().toString();
                                     openMenuActivity();
                                 }
                                 else
