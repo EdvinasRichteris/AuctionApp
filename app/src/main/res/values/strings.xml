@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">AuctionApp</string>
+    <string-array name='categories'>
+        <item>Transport</item>
+        <item>Toys</item>
+        <item>Beauty</item>
+        <item>Gaming</item>
+        <item>Clothes</item>
+    </string-array>
+    <string-array name='subCategories'>
+        <item>Cars</item>
+        <item>Jets</item>
+        <item>Ships</item>
+        <item>Boy Toys</item>
+        <item>Girl Toys</item>
+        <item>Eyeliners</item>
+        <item>Nail Polish</item>
+        <item>Laptops</item>
+        <item>PCs</item>
+        <item>Headset</item>
+        <item>Keyboards</item>
+        <item>T-Shirts</item>
+        <item>Jackets</item>
+        <item>Pants</item>
+        <item>Coats</item>
+    </string-array>
+
 </resources>
