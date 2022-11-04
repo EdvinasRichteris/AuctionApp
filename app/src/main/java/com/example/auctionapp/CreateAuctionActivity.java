@@ -48,13 +48,14 @@ public class CreateAuctionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String ItemName = itemName.getText().toString();
                 final String itemDescription = ItemDescription.getText().toString();
-                final String Category = category.getSelectedItem().toString();
-                final String SubCategory = subCategory.getSelectedItem().toString();
+                final String Category = "new cat";
+                final String SubCategory = "new sub cat";
                 final String StartingPrice = startingPrice.getText().toString();
                 final String TimeLeft = timeLeft.getText().toString();
                 final String Country = country.getText().toString();
                 final String City = city.getText().toString();
                 final String Address = address.getText().toString();
+
 
                 databaseReference.child("auctions").addValueEventListener(new ValueEventListener() {
                     @Override
