@@ -26,15 +26,28 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        myauctionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMyAuctionsActivity();
+            }
+        });
+
         auctionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openAuctionsActivity();
             }
         });
+
+
     }
     public void openAuctionsActivity() {
         Intent intent = new Intent(this, AuctionsActivity.class);
+        startActivity(intent);
+    }
+    public void openMyAuctionsActivity() {
+        Intent intent = new Intent(this, MyAuctions.class);
         startActivity(intent);
     }
     public void openProfileActivity() {

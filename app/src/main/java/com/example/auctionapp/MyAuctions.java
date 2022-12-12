@@ -34,10 +34,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class AuctionsActivity extends AppCompatActivity implements RecyclerViewInterface{
+public class MyAuctions extends AppCompatActivity implements RecyclerViewInterface{
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://auctionapp-8a872-default-rtdb.europe-west1.firebasedatabase.app/");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+    final String userPhoneNoForList = LoginActivity.phoneNoForReference;
     private String userPhoneNo;
     private String ItemName;
     private Button button10;
@@ -52,11 +53,10 @@ public class AuctionsActivity extends AppCompatActivity implements RecyclerViewI
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auctions);
+        setContentView(R.layout.my_auctions);
 
 
 
-        Button addNewAuction = (Button) findViewById(R.id.buttonAddNewAuction);
         recyclerView = findViewById(R.id.recyclerView);
 
         LinearLayoutManager LayoutManager = new LinearLayoutManager(this);
@@ -69,46 +69,36 @@ public class AuctionsActivity extends AppCompatActivity implements RecyclerViewI
 
 
         ClearAll();
-        new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-                GetDataFromFirebase();;
-            }
-        }, 2000);
+        GetDataFromFirebase();
 
 
 
-        addNewAuction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openCreateAuctionActivity();
-            }
-        });
     }
 
     private void GetDataFromFirebase() {
 
-        Query query = databaseReference.child("auctions");
+        Query query = databaseReference.child("auctions").child(userPhoneNoForList);
 
         valueEventListener = query.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshotPhones : snapshot.getChildren()){
-                    for(DataSnapshot dataSnapshotItems: dataSnapshotPhones.getChildren()){
-                        AuctionForRecyclerView auctionForRecycler = new AuctionForRecyclerView();
+                    AuctionForRecyclerView auctionForRecycler = new AuctionForRecyclerView();
 
-                        auctionForRecycler.setImageUrl(dataSnapshotItems.child("image").getValue().toString());
-                        auctionForRecycler.setItemname(dataSnapshotItems.child("itemname").getValue().toString());
-                        auctionForRecycler.setItemdesc(dataSnapshotItems.child("itemdesc").getValue().toString());
-                        auctionForRecycler.setAddress(dataSnapshotItems.child("address").getValue().toString());
-                        auctionForRecycler.setCity(dataSnapshotItems.child("city").getValue().toString());
-                        auctionForRecycler.setCountry(dataSnapshotItems.child("country").getValue().toString());
-                        auctionForRecycler.setStartingprice(dataSnapshotItems.child("startingprice").getValue().toString());
-/*                        auctionForRecycler.setCurrentbid(dataSnapshotItems.child("currentbid").getValue().toString());
-                        auctionForRecycler.setLastbidder(dataSnapshotItems.child("lastbidder").getValue().toString());*/
-                        auctionList.add(auctionForRecycler);
-                    }
+                    auctionForRecycler.setImageUrl(dataSnapshotPhones.child("image").getValue().toString());
+                    auctionForRecycler.setItemname(dataSnapshotPhones.child("itemname").getValue().toString());
+                    auctionForRecycler.setItemdesc(dataSnapshotPhones.child("itemdesc").getValue().toString());
+                    auctionForRecycler.setAddress(dataSnapshotPhones.child("address").getValue().toString());
+                    auctionForRecycler.setCity(dataSnapshotPhones.child("city").getValue().toString());
+                    auctionForRecycler.setCountry(dataSnapshotPhones.child("country").getValue().toString());
+                    auctionForRecycler.setStartingprice(dataSnapshotPhones.child("startingprice").getValue().toString());
+                    auctionForRecycler.setRealName(dataSnapshotPhones.getValue().toString());
+
+/*                  auctionForRecycler.setCurrentbid(dataSnapshotItems.child("currentbid").getValue().toString());
+                    auctionForRecycler.setLastbidder(dataSnapshotItems.child("lastbidder").getValue().toString());*/
+
+                    auctionList.add(auctionForRecycler);
                 }
                 query.removeEventListener(valueEventListener);
 
@@ -144,7 +134,7 @@ public class AuctionsActivity extends AppCompatActivity implements RecyclerViewI
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(AuctionsActivity.this, AuctionItemViewActivity.class);
+        Intent intent = new Intent(MyAuctions.this, AuctionItemViewActivity.class);
 
         intent.putExtra("IMAGE", auctionList.get(position).getImageUrl());
         intent.putExtra("ITEMDESC", auctionList.get(position).getItemdesc());
@@ -153,7 +143,7 @@ public class AuctionsActivity extends AppCompatActivity implements RecyclerViewI
         intent.putExtra("CITY", auctionList.get(position).getCity());
         intent.putExtra("COUNTRY", auctionList.get(position).getCountry());
         intent.putExtra("STARTINGPRICE", auctionList.get(position).getStartingprice());
-
+        intent.putExtra("realName", auctionList.get(position).getRealName());
 /*        intent.putExtra("CURRENTBID", auctionList.get(position).getCurrentbid());
         intent.putExtra("LASTBIDDER", auctionList.get(position).getLastbidder());*/
 
