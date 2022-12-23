@@ -7,8 +7,8 @@ public class AuctionForRecyclerView {
     String address;
     String city;
     String country;
-/*    String currentbid;
-    String lastbidder;*/
+    String currentbid;
+    String lastbidder;
     String startingprice;
     String realName;
 
@@ -18,7 +18,7 @@ public class AuctionForRecyclerView {
     }
     public AuctionForRecyclerView(String itemname, String imageUrl, String itemdesc,
                                   String address, String city, String country,
-                                  /*String currentbid, String lastbidder,*/ String startingprice, String realName) {
+                                  String currentbid, String lastbidder, String startingprice, String realName) {
         this.itemname = itemname;
         this.imageUrl = imageUrl;
         this.itemdesc = itemdesc;
@@ -27,8 +27,8 @@ public class AuctionForRecyclerView {
         this.address = address;
         this.startingprice = startingprice;
         this.realName = realName;
-/*        this.currentbid = currentbid;
-        this.lastbidder = lastbidder;*/
+        this.currentbid = currentbid;
+        this.lastbidder = lastbidder;
     }
 
     public void setItemdesc(String itemdesc) {
@@ -51,13 +51,13 @@ public class AuctionForRecyclerView {
         this.country = country;
     }
 
-/*    public void setCurrentbid(String currentbid) {
+    public void setCurrentbid(String currentbid) {
         this.currentbid = currentbid;
     }
 
     public void setLastbidder(String lastbidder) {
         this.lastbidder = lastbidder;
-    }*/
+    }
 
     public void setStartingprice(String startingprice) {
         this.startingprice = startingprice;
@@ -99,13 +99,13 @@ public class AuctionForRecyclerView {
         return country;
     }
 
-/*    public String getCurrentbid() {
+    public String getCurrentbid() {
         return currentbid;
     }
 
     public String getLastbidder() {
         return lastbidder;
-    }*/
+    }
 
     public String getStartingprice() {
         return startingprice;

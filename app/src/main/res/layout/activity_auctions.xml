@@ -9,12 +9,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="409dp"
+        android:layout_height="655dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/buttonAddNewAuction"
@@ -22,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="648dp"
+        android:layout_marginTop="600dp"
         android:layout_marginEnd="110dp"
         android:layout_marginBottom="35dp"
         android:backgroundTint="#9C6161"
@@ -30,8 +32,58 @@
         android:text="Add a new Auction"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
+        app:layout_constraintTop_toTopOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/carsButton"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:text="Cars"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/jetsButton"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:text="Jets"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/allButton"
+        app:layout_constraintStart_toEndOf="@+id/shipsButton" />
+
+    <Button
+        android:id="@+id/allButton"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:text="All"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/shipsButton"
+        android:layout_width="81dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:text="Ships"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView" />
+
+    <Button
+        android:id="@+id/toysButton"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:text="Toys"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/shipsButton"
+        app:layout_constraintStart_toEndOf="@+id/carsButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -91,17 +91,18 @@ public class CreateAuctionActivity extends AppCompatActivity implements AdapterV
             }
         });
 
-        ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(this, R.array.categories, android.R.layout.simple_spinner_dropdown_item);
-        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        category.setAdapter(categoryAdapter);
-
-        category.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> subCategoryAdapter = ArrayAdapter.createFromResource(this, R.array.subCategories, android.R.layout.simple_spinner_dropdown_item);
         subCategoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         subCategory.setAdapter(subCategoryAdapter);
 
         subCategory.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(this, R.array.categories, android.R.layout.simple_spinner_dropdown_item);
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        category.setAdapter(categoryAdapter);
+
+        category.setOnItemSelectedListener(this);
 
 
 
@@ -116,8 +117,8 @@ public class CreateAuctionActivity extends AppCompatActivity implements AdapterV
                     uploadToFirebase(imageUri);
                     final String ItemName = itemName.getText().toString();
                     final String itemDescription = ItemDescription.getText().toString();
-                    final String Category = categoryChoice;
                     final String SubCategory = subCategoryChoice;
+                    final String Category = categoryChoice;
                     final String StartingPrice = startingPrice.getText().toString();
                     final String TimeLeft = timeLeft.getText().toString();
                     final String Country = country.getText().toString();
@@ -134,7 +135,7 @@ public class CreateAuctionActivity extends AppCompatActivity implements AdapterV
                             databaseReference.child("auctions").child(userPhoneNo).child(ItemName).child("category").setValue(Category);
                             databaseReference.child("auctions").child(userPhoneNo).child(ItemName).child("subcategory").setValue(SubCategory);
                             databaseReference.child("auctions").child(userPhoneNo).child(ItemName).child("startingprice").setValue(StartingPrice);
-                            databaseReference.child("auctions").child(userPhoneNo).child(ItemName).child("currentBid").setValue("-");
+                            databaseReference.child("auctions").child(userPhoneNo).child(ItemName).child("currentBid").setValue("0.00");
                             databaseReference.child("auctions").child(userPhoneNo).child(ItemName).child("timeleft").setValue(TimeLeft);
                             databaseReference.child("auctions").child(userPhoneNo).child(ItemName).child("country").setValue(Country);
                             databaseReference.child("auctions").child(userPhoneNo).child(ItemName).child("city").setValue(City);
@@ -225,6 +226,7 @@ public class CreateAuctionActivity extends AppCompatActivity implements AdapterV
         }
         else
         {
+            categoryChoice = adapterView.getItemAtPosition(i).toString();
             subCategoryChoice = adapterView.getItemAtPosition(i).toString();
         }
     }
